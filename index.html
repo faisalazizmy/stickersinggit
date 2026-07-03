@@ -443,6 +443,15 @@
     flex:0 0 auto; width:240px; border-radius:16px; overflow:hidden;
     border:1px solid var(--line); box-shadow:0 6px 20px rgba(15,17,21,0.06); background:#fff;
   }
+  .testi-section:not(.testi-in-hero) .marquee-row{ padding:16px 0; }
+  .testi-section:not(.testi-in-hero) .testi-card{
+    border:2.5px solid var(--ink);
+    border-radius:18px;
+    box-shadow:5px 5px 0 var(--ink);
+    transform:rotate(-2deg);
+  }
+  .testi-section:not(.testi-in-hero) .testi-card:nth-child(even){ transform:rotate(2deg); }
+  .testi-section:not(.testi-in-hero) .testi-card:nth-child(3n){ box-shadow:5px 5px 0 var(--red); }
   .testi-card img{ width:100%; height:auto; }
   @keyframes scroll-left{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
   @keyframes scroll-right{ from{transform:translateX(-50%);} to{transform:translateX(0);} }
@@ -1006,7 +1015,7 @@
 </section>
 
 <footer>
-  © 2026 PJJ Sticker Singgit. Hak cipta terpelihara. <span style="opacity:.5;font-size:11px;">v2.0</span>
+  © 2026 PJJ Sticker Singgit. Hak cipta terpelihara. <span style="opacity:.5;font-size:11px;">v2.1</span>
 </footer>
 
 <script>
