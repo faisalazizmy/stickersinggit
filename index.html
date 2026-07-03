@@ -281,12 +281,98 @@
   .why-stat{
     background:var(--ink);
     color:#fff;
-    border-radius:20px;
-    padding:36px;
+    border-radius:24px;
+    padding:44px 32px;
     text-align:center;
+    position:relative;
+    overflow:hidden;
   }
-  .why-stat .big{ font-size:48px; font-weight:800; color:var(--red); line-height:1; }
-  .why-stat .desc{ margin-top:8px; font-size:14px; color:#c9cbd1; }
+  .why-stat::before{
+    content:'';
+    position:absolute; inset:0;
+    background:radial-gradient(circle at 50% 0%, rgba(232,39,44,0.25), transparent 60%);
+    pointer-events:none;
+  }
+  .stat-eyebrow{
+    display:inline-block;
+    background:var(--red);
+    color:#fff;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:6px 16px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
+  .why-stat .big{ font-size:68px; font-weight:800; color:var(--red); line-height:1; }
+  .why-stat .desc{ margin:14px auto 0; font-size:16px; line-height:1.6; color:#e4e6ea; max-width:280px; }
+  .stat-emojis{ margin-top:20px; font-size:24px; letter-spacing:10px; }
+
+  /* ===== BISNES PERLUKAN LABEL ===== */
+  .section-biz{
+    background:#fff9ec;
+    border-top:1px solid #f3e8cf;
+    border-bottom:1px solid #f3e8cf;
+  }
+  .biz-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+  }
+  .biz-chip{
+    background:#fff;
+    border:2px solid var(--ink);
+    border-radius:16px;
+    padding:20px 14px;
+    text-align:center;
+    font-weight:700;
+    font-size:14px;
+    box-shadow:4px 4px 0 var(--ink);
+    transform:rotate(-1.5deg);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .biz-chip:nth-child(even){ transform:rotate(1.5deg); }
+  .biz-chip:nth-child(3n){ background:#fff8e6; }
+  .biz-chip:nth-child(4n){ background:#fff1f1; }
+  .biz-chip:hover{ transform:rotate(0deg) translateY(-4px); box-shadow:6px 6px 0 var(--red); }
+  .biz-chip .emoji{ display:block; font-size:30px; margin-bottom:10px; }
+
+  .label-demo-head{ text-align:center; margin:56px 0 8px; font-size:20px; font-weight:800; }
+  .label-demo-sub{ text-align:center; color:var(--muted); font-size:14px; margin-bottom:28px; }
+  .label-demo{ display:flex; justify-content:center; gap:28px; flex-wrap:wrap; }
+  .label-card{
+    width:230px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px 16px 14px;
+    box-shadow:0 12px 28px rgba(15,17,21,0.10);
+    transform:rotate(-2deg);
+    position:relative;
+  }
+  .label-card::before{
+    content:'';
+    position:absolute; inset:7px;
+    border:1.5px dashed #d8dade;
+    border-radius:9px;
+    pointer-events:none;
+  }
+  .label-card.tilt-r{ transform:rotate(2deg); }
+  .label-card:hover{ transform:rotate(0deg) scale(1.03); transition:transform .15s ease; }
+  .label-card .lc-head{ font-weight:800; font-size:17px; text-align:center; line-height:1.25; }
+  .label-card .lc-sub{ font-size:11px; color:var(--muted); text-align:center; margin-top:5px; }
+  .label-card .lc-bar{
+    margin:14px auto 8px;
+    height:34px; width:78%;
+    background:repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 5px, var(--ink) 5px 6px, transparent 6px 9px);
+  }
+  .label-card .lc-foot{
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:10px; font-weight:700; color:var(--muted);
+    padding:0 6px;
+  }
+  .label-card .lc-foot .price{ font-size:14px; color:var(--red); font-weight:800; }
 
   /* ===== STEPS ===== */
   .steps{
@@ -486,6 +572,7 @@
     .why-grid, .ticer{ grid-template-columns:1fr; }
     .ticer-avatar{ max-width:160px; margin:0 auto; }
     .pain-grid, .steps{ grid-template-columns:1fr 1fr; }
+    .biz-grid{ grid-template-columns:repeat(3,1fr); }
     .pricing-grid{ grid-template-columns:1fr; }
     .price-card.featured{ transform:none; }
     .hero-visual{ grid-template-columns:repeat(2,1fr); }
@@ -504,6 +591,9 @@
     .nav .btn{ padding:8px 14px; font-size:12px; white-space:nowrap; }
     .h1-br{ display:none; }
     .hero h1{ font-size:28px; }
+    .biz-grid{ grid-template-columns:1fr 1fr; gap:14px; }
+    .biz-chip{ font-size:13px; padding:16px 10px; }
+    .why-stat .big{ font-size:56px; }
   }
 </style>
 </head>
@@ -618,8 +708,57 @@
       </ul>
     </div>
     <div class="why-stat">
-      <div class="big">1000+</div>
+      <div class="stat-eyebrow">Demand Tinggi</div>
+      <div class="big"><span id="stat-num">1000</span>+</div>
       <div class="desc">peniaga kecil perlukan label packaging setiap hari di Malaysia</div>
+      <div class="stat-emojis">🧁 🌶️ 🍪 ☕ 🧴</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BISNES PERLUKAN LABEL ===== -->
+<section class="section section-biz">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Semua Bisnes Ni <span class="accent">Perlukan Label</span></h2>
+      <p>List ni baru sebahagian. Setiap satu adalah bakal customer sticker label anda.</p>
+    </div>
+    <div class="biz-grid">
+      <div class="biz-chip"><span class="emoji">🧁</span>Kek dan Bakeri Rumah</div>
+      <div class="biz-chip"><span class="emoji">🌶️</span>Sambal dan Pes</div>
+      <div class="biz-chip"><span class="emoji">🍪</span>Biskut dan Kuih Raya</div>
+      <div class="biz-chip"><span class="emoji">🥟</span>Frozen Food</div>
+      <div class="biz-chip"><span class="emoji">☕</span>Kopi dan Minuman Botol</div>
+      <div class="biz-chip"><span class="emoji">🍿</span>Snek dan Keropok</div>
+      <div class="biz-chip"><span class="emoji">🍯</span>Madu dan Herba</div>
+      <div class="biz-chip"><span class="emoji">🧴</span>Skincare Homemade</div>
+      <div class="biz-chip"><span class="emoji">🧼</span>Sabun dan Lilin Wangi</div>
+      <div class="biz-chip"><span class="emoji">🎁</span>Gift dan Doorgift</div>
+      <div class="biz-chip"><span class="emoji">🌸</span>Florist</div>
+      <div class="biz-chip"><span class="emoji">🍱</span>Catering dan Delivery</div>
+    </div>
+
+    <div class="label-demo-head">Contoh Label Yang Anda Boleh Hasilkan</div>
+    <div class="label-demo-sub">Design macam ni je customer dah sanggup bayar setiap bulan</div>
+    <div class="label-demo">
+      <div class="label-card">
+        <div class="lc-head">Kek Batik Mak Long</div>
+        <div class="lc-sub">Dibuat segar setiap hari</div>
+        <div class="lc-bar"></div>
+        <div class="lc-foot"><span>STICKER SINGGIT ★</span><span class="price">RM15</span></div>
+      </div>
+      <div class="label-card tilt-r">
+        <div class="lc-head">Sambal Garing Ibu</div>
+        <div class="lc-sub">Pedas berapi sampai suapan terakhir</div>
+        <div class="lc-bar"></div>
+        <div class="lc-foot"><span>STICKER SINGGIT ★</span><span class="price">RM12</span></div>
+      </div>
+      <div class="label-card">
+        <div class="lc-head">Bloom Skincare</div>
+        <div class="lc-sub">Homemade dengan bahan semula jadi</div>
+        <div class="lc-bar"></div>
+        <div class="lc-foot"><span>STICKER SINGGIT ★</span><span class="price">RM29</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -829,7 +968,7 @@
 </section>
 
 <footer>
-  © 2026 PJJ Sticker Singgit. Hak cipta terpelihara. <span style="opacity:.5;font-size:11px;">v1.7</span>
+  © 2026 PJJ Sticker Singgit. Hak cipta terpelihara. <span style="opacity:.5;font-size:11px;">v1.8</span>
 </footer>
 
 <script>
@@ -860,6 +999,31 @@
     }
     tick();
     setInterval(tick, 1000);
+  })();
+
+  // Count up animasi untuk stat 1000+
+  (function(){
+    var el = document.getElementById('stat-num');
+    if(!el || !('IntersectionObserver' in window)) return;
+    var done = false;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting && !done){
+          done = true;
+          var start = null, dur = 1400;
+          function frame(ts){
+            if(!start) start = ts;
+            var p = Math.min((ts - start) / dur, 1);
+            var eased = 0.5 - Math.cos(Math.PI * p) / 2;
+            el.textContent = Math.round(1000 * eased);
+            if(p < 1) requestAnimationFrame(frame);
+          }
+          requestAnimationFrame(frame);
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+    io.observe(el);
   })();
 </script>
 
