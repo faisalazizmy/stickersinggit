@@ -223,6 +223,7 @@
     padding:0;
   }
   .testi-in-hero .marquee-row + .marquee-row{ margin-top:16px; }
+  .testi-in-hero .testi-card{ width:320px; }
 
   /* ===== PAIN POINTS ===== */
   .pain-grid{
@@ -273,6 +274,7 @@
     font-size:13px;
     display:flex; align-items:center; justify-content:center;
   }
+  .why-logo{ width:190px; height:auto; margin-bottom:20px; }
   .why-list strong{ display:block; font-size:15px; margin-bottom:2px; }
   .why-list span{ font-size:14px; color:var(--muted); }
 
@@ -491,9 +493,10 @@
   @media (max-width:560px){
     .pain-grid, .steps, .silibus-grid{ grid-template-columns:1fr; }
     .testi-card{ width:180px; }
+    .testi-in-hero .testi-card{ width:280px; }
     .section{ padding:56px 0; }
     .guarantee, .ticer{ padding:28px; }
-    .nav{ flex-wrap:nowrap; gap:8px; padding:10px 12px; }
+    .nav{ flex-wrap:nowrap; gap:8px; padding:10px 16px; }
     .logo img{ height:32px; }
     .nav-countdown{ gap:4px; }
     .nav-countdown .box{ min-width:38px; padding:5px 6px; }
@@ -594,6 +597,7 @@
 <section class="section">
   <div class="wrap why-grid">
     <div>
+      <img src="assets/logo.png" alt="Sticker Singgit" class="why-logo">
       <div class="eyebrow">Kenapa Sticker Label</div>
       <h2 style="font-size:32px;font-weight:800;margin-bottom:20px;line-height:1.2;">Bisnes Kecil-Kecilan Yang Demand Dia Tak Pernah Turun</h2>
       <ul class="why-list">
@@ -823,7 +827,7 @@
 </section>
 
 <footer>
-  © 2026 PJJ Sticker Singgit. Hak cipta terpelihara. <span style="opacity:.5;font-size:11px;">v1.4</span>
+  © 2026 PJJ Sticker Singgit. Hak cipta terpelihara. <span style="opacity:.5;font-size:11px;">v1.5</span>
 </footer>
 
 <script>
