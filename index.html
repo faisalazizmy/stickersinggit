@@ -216,14 +216,43 @@
   }
   .hero-visual .chip strong{ display:block; font-size:18px; color:var(--ink); margin-bottom:4px; }
 
-  .testi-in-hero{
-    margin:40px calc(50% - 50vw) 0;
+  .hero-hint{
+    margin-top:36px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+  }
+  .hero-hint p{
+    font-weight:700;
+    font-size:15px;
+    color:var(--ink);
+    white-space:nowrap;
+  }
+  .hint-arrow{
+    width:32px; height:40px;
+    color:var(--red);
+    flex:0 0 auto;
+    animation:hint-bounce 1.6s ease-in-out infinite;
+  }
+  .hint-arrow.flip{ transform:scaleX(-1); }
+  @keyframes hint-bounce{
+    0%, 100%{ translate:0 0; }
+    50%{ translate:0 7px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hint-arrow{ animation:none; }
+  }
+
+  .testi-section.testi-in-hero{
+    margin:10px calc(50% - 50vw) 0;
     width:100vw;
     overflow:hidden;
     padding:0;
   }
   .testi-in-hero .marquee-row + .marquee-row{ margin-top:16px; }
   .testi-in-hero .testi-card{ width:320px; }
+  .testi-in-hero .marquee-track{ align-items:flex-start; }
 
   /* ===== PAIN POINTS ===== */
   .pain-grid{
@@ -594,6 +623,9 @@
     .biz-grid{ grid-template-columns:1fr 1fr; gap:14px; }
     .biz-chip{ font-size:13px; padding:16px 10px; }
     .why-stat .big{ font-size:56px; }
+    .hero-hint{ gap:8px; }
+    .hero-hint p{ font-size:13px; }
+    .hint-arrow{ width:26px; height:32px; }
   }
 </style>
 </head>
@@ -617,6 +649,12 @@
   <h1>Bina Side Income Dari Rumah<br class="h1-br"> Guna Bisnes <span class="accent draw-wrap">Sticker Label<svg class="draw-line" viewBox="0 0 300 40" preserveAspectRatio="none"><path d="M4 24C60 10 120 8 150 14C190 22 240 30 296 16" pathLength="1"/></svg></span></h1>
   <p class="lead">Panduan langkah demi langkah untuk mula terima order sticker label — tak perlu skill design, tak perlu modal besar, boleh mula guna printer thermal rumah.</p>
   <a href="#pricing" class="btn">Grab Blueprint Sekarang</a>
+
+  <div class="hero-hint">
+    <svg class="hint-arrow" viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg"><path d="M26 4C16 12 12 21 14 30" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M17.5 43L7.5 32.5L21.5 29.5Z" fill="currentColor"/></svg>
+    <p>Ini hasil sebenar pelajar yang dah join</p>
+    <svg class="hint-arrow flip" viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg"><path d="M26 4C16 12 12 21 14 30" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M17.5 43L7.5 32.5L21.5 29.5Z" fill="currentColor"/></svg>
+  </div>
 
   <div class="testi-section testi-in-hero">
     <div class="marquee-row">
@@ -968,7 +1006,7 @@
 </section>
 
 <footer>
-  © 2026 PJJ Sticker Singgit. Hak cipta terpelihara. <span style="opacity:.5;font-size:11px;">v1.9</span>
+  © 2026 PJJ Sticker Singgit. Hak cipta terpelihara. <span style="opacity:.5;font-size:11px;">v2.0</span>
 </footer>
 
 <script>
